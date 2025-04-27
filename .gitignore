@@ -3,7 +3,7 @@ docker/volumes/
 mariadb_data/
 
 # Secret
-.env
+#.env
 
 # Files OS
 .DS_Store

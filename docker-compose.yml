@@ -21,7 +21,7 @@ services:
       MARIADB_USER: ${MARIADB_USER}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD}
     ports:
-      - "3306:3306"
+      - "${MARIADB_PORT:-3306}:3306"  # you can change this port on .env for MARIADB_PORT variable
     volumes:
       - mariadb_data:/var/lib/mysql
 
@@ -31,7 +31,7 @@ services:
     environment:
       ORACLE_PASSWORD: ${ORACLE_PASSWORD}
     ports:
-      - "1521:1521"
+      - "${ORACLE_PORT:-1521}:1521"  # you can change this port on .env for ORACLE_PORT variable
 
 volumes:
   mariadb_data:

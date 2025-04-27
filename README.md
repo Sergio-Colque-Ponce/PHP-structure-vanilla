@@ -63,6 +63,7 @@ docker compose up --build
 
 The first build may take several minutes as Docker downloads images.
 
+> If you have an error at any port, you can change the port in .env 
 ---
 
 ### 3. Access your PHP application
@@ -82,7 +83,7 @@ You should see the PHP application running.
 | Service        | URL/Port          | Description                         |
 |----------------|-------------------|-------------------------------------|
 | PHP + Apache   | `localhost:8080`  | Main application                    |
-| MariaDB        | `localhost:3306`  | MariaDB database server             |
+| MariaDB        | `localhost:3306`  | MariaDB database server (optional)  |
 | OracleDB       | `localhost:1521`  | OracleDB server (optional)          |
 
 ---
@@ -156,11 +157,15 @@ You can configure database credentials:
 Example `.env` file:
 
 ```dotenv
-MARIADB_ROOT_PASSWORD=rootpassword
+# MariaDB settings
+MARIADB_ROOT_PASSWORD=rootpassword # <-- this is for the root user
 MARIADB_DATABASE=mydatabase
 MARIADB_USER=myuser
 MARIADB_PASSWORD=mypassword
+MARIADB_PORT=3306 # <-- CHANGE THIS if you have an error for port
+# OracleDB settings
 ORACLE_PASSWORD=oraclepassword
+ORACLE_PORT=1522 # <-- CHANGE THIS if you have an error for port
 ```
 
 **Important:** Never push your real `.env` to GitHub.

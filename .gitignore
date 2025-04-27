@@ -1,0 +1,30 @@
+# Volumes Docker
+docker/volumes/
+mariadb_data/
+
+# Secret
+.env
+
+# Files OS
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Files cache PHP
+*.cache
+*.tmp
+
+# Composer 
+vendor/
+
+# Node (npm)
+node_modules/
+
+# Visual Studio Code
+.vscode/
+
+# Build files Docker
+**/Dockerfile~
+**/docker-compose.yml~

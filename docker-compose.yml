@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./docker/apache-php
+    container_name: php_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mariadb
+      - oracledb
+
+  mariadb:
+    image: mariadb:11.3
+    container_name: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: mydb
+      MARIADB_USER: user
+      MARIADB_PASSWORD: userpassword
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  oracledb:
+    image: gvenzl/oracle-free:23
+    container_name: oracledb
+    restart: always
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: oraclepassword
+
+volumes:
+  mariadb_data:

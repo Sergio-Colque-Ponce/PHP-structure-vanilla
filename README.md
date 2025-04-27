@@ -1,0 +1,1 @@
+# PHP-structure-vanilla
